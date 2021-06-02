@@ -39,6 +39,16 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     transition: background-color 0.4s;
     background-color:${({ theme }) => theme.colors.white};
   }
+
+  #__next,
+  #next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
   a {
     text-decoration: none;
     color: inherit
