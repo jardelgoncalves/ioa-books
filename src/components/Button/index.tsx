@@ -1,52 +1,22 @@
-import React from "react";
-import "./button.css";
+import * as S from './styles'
 
 export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
+  size?: 'xs' | 'sm' | 'md' | 'lg'
+  type?: 'button' | 'submit' | 'reset'
+  width?: number
+  label: string
+  onClick?: () => void
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button: React.FC<ButtonProps> = ({
-  primary = false,
-  size = "medium",
-  backgroundColor,
-  label,
-  ...props
-}) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
+export const Button = ({ size, width, label, onClick, type }: ButtonProps) => {
   return (
-    <button
-      type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={{ backgroundColor }}
-      {...props}
+    <S.ButotnWrapper
+      size={size}
+      width={width}
+      onClick={onClick}
+      type={type || 'button'}
     >
       {label}
-    </button>
-  );
-};
+    </S.ButotnWrapper>
+  )
+}
