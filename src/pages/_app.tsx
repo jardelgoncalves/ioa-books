@@ -1,22 +1,28 @@
-import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
+import { HeadSEO } from '../components/HeadSEO'
+import { Layout } from '../components/Layout/styles'
 import { GlobalStyle } from '../styles/global.styles'
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { theme } from '../styles/theme'
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type AppProps = {
   Component: React.FC
-  props: any
+  pageProps: any
 }
 
-export default function App({ Component, props }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <Head>
-        <title>Ioa Books</title>
-      </Head>
+      <HeadSEO
+        title={pageProps?.title || 'Ioa Books'}
+        backgroundImage={pageProps?.backgroundImage}
+        metaDescription={pageProps?.metaDescription}
+        metaType={pageProps?.metaType}
+      />
       <GlobalStyle />
-      <Component {...props} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   )
 }
