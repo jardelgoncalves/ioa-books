@@ -6,4 +6,10 @@ export const shapes = {
     lg: '1.5rem',
     xlg: '2rem',
   },
+  buttonSizes: {
+    xs: '2.25rem',
+    sm: '2.5rem',
+    md: '3rem',
+    lg: '3.5rem',
+  },
 } as const
