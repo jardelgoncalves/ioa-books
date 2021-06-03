@@ -3,9 +3,8 @@ import { GetStaticProps } from 'next'
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      title: 'Ioa Books | Login',
-      backgroundImage: 'bg-people.png',
-      backgroundMobileImage: 'bg-mobile-people.png',
+      title: 'Ioa Books',
+      backgroundImage: 'bg-color.svg',
     },
   }
 }
