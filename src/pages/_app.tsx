@@ -15,12 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <HeadSEO
         title={pageProps?.title || 'Ioa Books'}
-        backgroundImage={pageProps?.backgroundImage}
         metaDescription={pageProps?.metaDescription}
         metaType={pageProps?.metaType}
       />
       <GlobalStyle />
-      <Layout>
+      <Layout backgroundImage={pageProps?.backgroundImage}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

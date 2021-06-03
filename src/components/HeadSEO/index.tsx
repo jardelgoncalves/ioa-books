@@ -2,31 +2,12 @@ import Head from 'next/head'
 
 interface HeadSEOProps {
   title?: string
-  backgroundImage?: string
   metaDescription?: string
   metaType?: string
 }
 
-export const HeadSEO = ({
-  title,
-  backgroundImage,
-  metaDescription,
-  metaType,
-}: HeadSEOProps) => (
+export const HeadSEO = ({ title, metaDescription, metaType }: HeadSEOProps) => (
   <Head>
-    {backgroundImage && (
-      <style jsx global>{`
-        body {
-          background-image: url('/${backgroundImage}');
-          height: 100%;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-attachment: fixed;
-        }
-      `}</style>
-    )}
-
     {title && (
       <>
         <title>{title}</title>
