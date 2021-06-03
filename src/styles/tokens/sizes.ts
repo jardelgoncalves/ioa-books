@@ -7,10 +7,10 @@ function base() {
 export const sizes = {
   desktop: {
     ...base(),
-    navbar: '4.375rem',
+    navbar: '2.5rem',
   },
   mobile: {
     ...base(),
-    navbar: '3.5rem',
+    navbar: '2.5rem',
   },
 } as const
