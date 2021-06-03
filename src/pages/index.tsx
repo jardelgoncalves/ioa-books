@@ -9,4 +9,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export { default } from '../containers/Login'
+export { default } from '../containers/Home'
