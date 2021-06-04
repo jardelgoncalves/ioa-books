@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components'
-import { HeadSEO } from '../components/HeadSEO'
-import { Layout } from '../components/Layout'
+import { HeadSEO } from '../components/core/HeadSEO'
+import { Layout } from '../components/core/Layout'
 import { GlobalStyle } from '../styles/global.styles'
 import { theme } from '../styles/theme'
 
