@@ -15,42 +15,13 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-top: ${({ theme }) => theme.spacing.sm};
+  z-index: 9999;
 
-  &.--scroll {
-    margin-top: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0 8.1875rem;
-    backdrop-filter: blur(7px);
-  }
-
-  ${({ theme }) => theme.breakpoints.lessThan('huge')`
-    &.--scroll {
-      padding: 0 7.1875rem;
+  ${({ theme }) => theme.breakpoints.lessThan('medium')`
+    .user-message {
+      display: none;
     }
   `}
-
-  ${({ theme }) => theme.breakpoints.lessThan('large')`
-    &.--scroll {
-      padding: 0 4.1875rem;
-    }
-  `}
-
-    ${({ theme }) => theme.breakpoints.lessThan('medium')`
-      .user-message {
-        display: none;
-      }
-      &.--scroll {
-        padding: 0 3.1875rem;
-      }
-    `}
-
-    ${({ theme }) => theme.breakpoints.lessThan('small')`
-      &.--scroll {
-        padding: 0 1.5rem;
-      }
-    `}
 `
 
 export const UserWrapper = styled.div`
