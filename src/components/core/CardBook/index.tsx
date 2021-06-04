@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Book } from '../../interfaces/book'
+import { Book } from '../../../interfaces/book'
 import * as S from './styles'
 
 export interface CardBookProps {
@@ -12,7 +12,12 @@ export const CardBook = ({ book, onClick }: CardBookProps) => {
   return (
     <S.Box onClick={() => onClick(book)}>
       <S.CoverContainer>
-        <Image height={192} width={325} src={book.imageUrl} alt={book.title} />
+        <Image
+          objectFit="cover"
+          layout="fill"
+          src={book.imageUrl}
+          alt={book.title}
+        />
       </S.CoverContainer>
       <S.Description>
         <S.Title>{book.title}</S.Title>
