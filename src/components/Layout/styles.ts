@@ -1,24 +1,25 @@
 import styled from 'styled-components'
 
-type LayoutProps = {
+type ContentProps = {
   backgroundImage?: string
 }
 
-export const Layout = styled.main<LayoutProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+export const Layout = styled.main`
+  width: 100%;
+  height: 100vh;
+`
+
+export const Content = styled.div<ContentProps>`
   padding: 0 8.1875rem;
   height: 100%;
   width: 100%;
+  overflow: auto;
 
   ${({ backgroundImage }) => {
     return (
       backgroundImage &&
       `
         background-image: url('/${backgroundImage}');
-        height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
