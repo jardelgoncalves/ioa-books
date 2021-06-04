@@ -6,4 +6,7 @@ export const colors = {
   white: '#FFFFFF',
   bgInput: '#00000052',
   borderColor: '#33333333',
+  boxShadowPurple: '#54105f21',
+  boxShadowPurpleDark: '#54105f52',
+  boxShadowBlack: '#00000026',
 } as const
