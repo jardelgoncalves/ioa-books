@@ -17,3 +17,9 @@ export const Primary = Template.bind({})
 Primary.args = {
   label: 'Entrar',
 }
+
+export const Outline = Template.bind({})
+Outline.args = {
+  label: 'ok',
+  outline: true,
+}
