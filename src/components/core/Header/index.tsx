@@ -2,7 +2,6 @@ import { Logo } from '../Logo'
 import { Button } from '../Button'
 import * as S from './styles'
 import { Icon } from '../Icon'
-import { useEffect, useState } from 'react'
 
 interface User {
   name: string
@@ -13,26 +12,8 @@ export interface HeaderProps {
 }
 
 export const Header = ({ user }: HeaderProps) => {
-  const [headerClass, setHeaderClass] = useState('')
-  const onScroll = () => {
-    const currentYPos = window.scrollY
-    const limitYPos = 40
-    const isScrollingUp = currentYPos > limitYPos
-    if (isScrollingUp) {
-      setHeaderClass('--scroll')
-      return
-    }
-    setHeaderClass('')
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll, false)
-    return () => {
-      window.removeEventListener('scroll', onScroll, false)
-    }
-  }, [])
   return (
-    <S.Header className={headerClass}>
+    <S.Header>
       <Logo themeColor="black" />
       <S.UserWrapper>
         <S.UserMessage className="user-message">
