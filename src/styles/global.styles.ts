@@ -34,19 +34,11 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
       font-size: 97.5%;
     }
   }
+
   body {
     transition: background 0.4s;
     transition: background-color 0.4s;
     background-color:${({ theme }) => theme.colors.white};
-  }
-
-  #__next,
-  #next {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
   }
 
   a {
