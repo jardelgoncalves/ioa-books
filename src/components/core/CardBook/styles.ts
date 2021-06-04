@@ -1,4 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const ellipsisStyle = css`
+  width: 8.4375rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
 
 export const Box = styled.button`
   max-width: 17rem;
@@ -8,7 +15,7 @@ export const Box = styled.button`
   box-shadow: 0px 6px 24px 0px ${({ theme }) => theme.colors.boxShadowPurple};
   padding: ${({ theme }) => theme.spacing.sm};
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   border: 0;
   transition: box-shadow 0.3s;
@@ -16,17 +23,22 @@ export const Box = styled.button`
     box-shadow: 0px 16px 80px 0px
       ${({ theme }) => theme.colors.boxShadowPurpleDark};
   }
+
+  @media (max-width: 650px) {
+    max-width: 100%;
+  }
 `
 
 export const CoverContainer = styled.div`
+  position: relative;
   height: 100%;
   width: 9.2875rem;
   box-shadow: 0px 6px 9px 0px ${({ theme }) => theme.colors.boxShadowBlack};
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    position: relative;
+    max-width: 9.2875rem;
+    height: auto;
   }
 `
 
@@ -44,6 +56,7 @@ export const Title = styled.h3`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
   font-weight: ${({ theme }) => theme.typography.weight.medium};
   line-height: ${({ theme }) => theme.typography.lineHeight.base};
+  ${ellipsisStyle};
 `
 
 export const Author = styled.h3`
@@ -51,6 +64,7 @@ export const Author = styled.h3`
   font-size: ${({ theme }) => theme.typography.sizes.xs};
   font-weight: ${({ theme }) => theme.typography.weight.regular};
   line-height: ${({ theme }) => theme.typography.lineHeight.base};
+  ${ellipsisStyle};
 `
 
 export const Info = styled.div`
