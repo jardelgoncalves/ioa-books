@@ -21,7 +21,10 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       <GlobalStyle />
       <AuthProvider>
-        <Layout backgroundImage={pageProps?.backgroundImage}>
+        <Layout
+          backgroundImage={pageProps?.backgroundImage}
+          isFullPage={pageProps.isFullPage}
+        >
           <Component {...pageProps} />
         </Layout>
       </AuthProvider>

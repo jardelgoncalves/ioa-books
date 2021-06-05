@@ -18,6 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {
       title: 'Ioa Books | Login',
       backgroundImage: 'bg-people.png',
+      isFullPage: true,
     },
   }
 }
