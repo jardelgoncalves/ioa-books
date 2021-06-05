@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components'
 import { HeadSEO } from '../components/core/HeadSEO'
 import { Layout } from '../components/core/Layout'
+import { AuthProvider } from '../contexts/auth-provider'
 import { GlobalStyle } from '../styles/global.styles'
 import { theme } from '../styles/theme'
 
@@ -19,9 +20,11 @@ export default function App({ Component, pageProps }: AppProps) {
         metaType={pageProps?.metaType}
       />
       <GlobalStyle />
-      <Layout backgroundImage={pageProps?.backgroundImage}>
-        <Component {...pageProps} />
-      </Layout>
+      <AuthProvider>
+        <Layout backgroundImage={pageProps?.backgroundImage}>
+          <Component {...pageProps} />
+        </Layout>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
