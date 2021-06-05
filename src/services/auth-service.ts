@@ -1,4 +1,4 @@
-import { setCookie, parseCookies } from 'nookies'
+import { setCookie, parseCookies, destroyCookie } from 'nookies'
 
 import { User } from '../interfaces/user'
 import { api } from '../services/api'
@@ -51,4 +51,9 @@ export const signIn = async ({
 export const recoveryUser = async (): Promise<User | null> => {
   const { [USER_COOKIES]: user } = parseCookies()
   return user ? (JSON.parse(user) as User) : null
+}
+
+export const logout = () => {
+  destroyCookie(undefined, USER_COOKIES)
+  destroyCookie(undefined, TOKEN_COOKIES)
 }
