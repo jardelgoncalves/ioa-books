@@ -21,7 +21,7 @@ export const typography = {
   },
   lineHeight: {
     sm: '1rem',
-    base: '1.675rem',
+    base: '1.5rem',
     md: '2rem',
     lg: '2.5rem',
   },
