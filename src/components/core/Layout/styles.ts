@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
-type ContentProps = {
+type Props = {
   backgroundImage?: string
+  isFullPage?: boolean
 }
 
-export const Layout = styled.main`
+export const Layout = styled.main<Props>`
   width: 100%;
-  height: 100vh;
+  height: ${({ isFullPage }) => (isFullPage ? '100vh' : 'auto')};
 `
 
-export const Content = styled.div<ContentProps>`
+export const Content = styled.div<Props>`
   padding: 0 8.1875rem;
   height: 100%;
   width: 100%;
@@ -23,6 +24,7 @@ export const Content = styled.div<ContentProps>`
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        height: 100vh;
         background-attachment: fixed;
       `
     )
