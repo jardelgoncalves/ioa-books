@@ -1,16 +1,28 @@
+import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
+
 import { Button } from '../../components/core/Button'
 import { Input } from '../../components/core/Input'
 import { Logo } from '../../components/core/Logo'
 import * as S from './styles'
+import { AuthContext } from '../../contexts/auth-provider'
 
 export default function Login() {
+  const { signIn } = useContext(AuthContext)
+  const { register, handleSubmit } = useForm()
+
+  async function handleSignIn({ email, password }) {
+    await signIn({ email, password })
+  }
   return (
     <S.Container>
       <Logo themeColor="white" mb="lg" />
-      <Input label="Email" />
-      <Input label="Senha" type="password">
-        <Button label="Entrar" size="xs" />
-      </Input>
+      <form onSubmit={handleSubmit(handleSignIn)}>
+        <Input {...register('email')} label="Email" />
+        <Input {...register('password')} label="Senha" type="password">
+          <Button label="Entrar" size="xs" type="submit" />
+        </Input>
+      </form>
     </S.Container>
   )
 }
