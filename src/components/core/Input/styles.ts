@@ -34,8 +34,8 @@ export const Input = styled.input`
   height: 100%;
   width: 100%;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: ${({ theme }) => theme.typography.sizes.base};
+  line-height: ${({ theme }) => theme.typography.lineHeight.base};
   color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   border: none;
@@ -43,5 +43,13 @@ export const Input = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.colors.white};
     opacity: 0.3;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.white} !important;
   }
 `
