@@ -6,4 +6,5 @@ export const List = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: ${({ theme }) => theme.spacing.xl};
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
 `
