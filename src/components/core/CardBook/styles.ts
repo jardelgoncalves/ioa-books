@@ -8,7 +8,7 @@ const ellipsisStyle = css`
 `
 
 export const Box = styled.button`
-  max-width: 17rem;
+  max-width: 16.9rem;
   width: 100%;
   height: 10rem;
   background-color: ${({ theme }) => theme.colors.white};
@@ -79,5 +79,6 @@ export const Info = styled.div`
     font-size: ${({ theme }) => theme.typography.sizes.xs};
     font-weight: ${({ theme }) => theme.typography.weight.regular};
     line-height: 1.25rem;
+    ${ellipsisStyle};
   }
 `
