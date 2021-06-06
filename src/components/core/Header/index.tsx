@@ -5,16 +5,12 @@ import * as S from './styles'
 import { Icon } from '../Icon'
 
 import * as authService from '../../../services/auth-service'
+import { AuthContext } from '../../../contexts/auth-provider'
+import { useContext } from 'react'
 
-interface User {
-  name: string
-}
+export const Header = () => {
+  const { user } = useContext(AuthContext)
 
-export interface HeaderProps {
-  user: User
-}
-
-export const Header = ({ user }: HeaderProps) => {
   function logout() {
     authService.logout()
     Router.push('/login')
