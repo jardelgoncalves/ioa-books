@@ -1,20 +1,23 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-export const useFetchBooks = (page: number, limit: number) => {
+export const useFetchBooks = (page: number) => {
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
     const pageUrl = router.pathname
-    const _limit = Math.min(Math.max(Number(limit || 12), 8), 25)
 
-    router.push(`${pageUrl}?page=${page}&limit=${_limit}`, undefined, {
-      shallow: false,
-    })
+    setLoading(true)
+    router
+      .push(`${pageUrl}?page=${page}`, undefined, {
+        shallow: false,
+      })
+      .then(() => {
+        setLoading(false)
+      })
 
-    setLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, limit])
+  }, [page])
   return { isFallback: router.isFallback, loading }
 }
