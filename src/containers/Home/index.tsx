@@ -4,7 +4,6 @@ import { Book } from '../../interfaces/book'
 
 import { ListBooks } from '../../components/presentation/ListBooks'
 import { useFetchBooks } from '../../hooks/useFetchBooks'
-import { Loading } from '../../components/core/Loading'
 
 interface LoginProps {
   books: Book[]
@@ -20,25 +19,22 @@ interface LoginProps {
 
 export default function Login({
   books,
-  query: { page, limit },
+  query: { page },
   pagination,
 }: LoginProps) {
   const [currentPage, setCurrentPage] = useState(Number(page || 1))
-  const { loading, isFallback } = useFetchBooks(currentPage, limit)
+  const { loading, isFallback } = useFetchBooks(currentPage)
 
   function handlerPages(newpage: number) {
     setCurrentPage(newpage)
   }
 
-  if (isFallback || loading) {
-    return <Loading />
-  }
-
   return (
     <ListBooks
+      loading={loading || isFallback}
       books={books}
       pagination={{
-        page: currentPage,
+        page,
         totalPages: pagination.totalPages,
         onChangePage: handlerPages,
       }}
