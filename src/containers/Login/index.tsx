@@ -6,9 +6,10 @@ import { Input } from '../../components/core/Input'
 import { Logo } from '../../components/core/Logo'
 import * as S from './styles'
 import { AuthContext } from '../../contexts/auth-provider'
+import { AlertMessage } from '../../components/core/AlertMessage'
 
 export default function Login() {
-  const { signIn } = useContext(AuthContext)
+  const { signIn, error } = useContext(AuthContext)
   const { register, handleSubmit } = useForm()
 
   async function handleSignIn({ email, password }) {
@@ -23,6 +24,7 @@ export default function Login() {
           <Button label="Entrar" size="xs" type="submit" />
         </Input>
       </form>
+      <AlertMessage message={error} mt={16} />
     </S.Container>
   )
 }
