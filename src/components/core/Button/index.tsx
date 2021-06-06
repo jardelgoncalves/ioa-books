@@ -1,3 +1,4 @@
+import { Loading } from '../Loading'
 import * as S from './styles'
 
 export interface ButtonProps {
@@ -9,6 +10,7 @@ export interface ButtonProps {
   label?: string
   onClick?: () => void
   disabled?: boolean
+  loading?: boolean
   children?: React.ReactNode
 }
 
@@ -21,6 +23,7 @@ export const Button = ({
   outline,
   bg,
   disabled,
+  loading,
   children,
 }: ButtonProps) => {
   return (
@@ -30,11 +33,12 @@ export const Button = ({
       bg={bg}
       width={width}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
       type={type || 'button'}
     >
-      {label}
-      {children}
+      {loading && <Loading />}
+      {!loading && label}
+      {!loading && children}
     </S.ButotnWrapper>
   )
 }
