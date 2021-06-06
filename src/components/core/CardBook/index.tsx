@@ -15,7 +15,7 @@ export const CardBook = ({ book, onClick }: CardBookProps) => {
         <Image
           objectFit="cover"
           layout="fill"
-          src={book.imageUrl}
+          src={book.imageUrl || '/image-placeholder.png'}
           alt={book.title}
         />
       </S.CoverContainer>
