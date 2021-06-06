@@ -9,7 +9,7 @@ import { AuthContext } from '../../contexts/auth-provider'
 import { AlertMessage } from '../../components/core/AlertMessage'
 
 export default function Login() {
-  const { signIn, error } = useContext(AuthContext)
+  const { signIn, error, loading } = useContext(AuthContext)
   const { register, handleSubmit } = useForm()
 
   async function handleSignIn({ email, password }) {
@@ -21,7 +21,7 @@ export default function Login() {
       <form onSubmit={handleSubmit(handleSignIn)}>
         <Input {...register('email')} label="Email" />
         <Input {...register('password')} label="Senha" type="password">
-          <Button label="Entrar" size="xs" type="submit" />
+          <Button loading={loading} label="Entrar" size="xs" type="submit" />
         </Input>
       </form>
       <AlertMessage message={error} mt={16} />
