@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components'
+import { Header } from '../components/core/Header'
 import { HeadSEO } from '../components/core/HeadSEO'
 import { Layout } from '../components/core/Layout'
 import { AuthProvider } from '../contexts/auth-provider'
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
           backgroundImage={pageProps?.backgroundImage}
           isFullPage={pageProps.isFullPage}
         >
+          {pageProps?.headerVisible && <Header />}
           <Component {...pageProps} />
         </Layout>
       </AuthProvider>
