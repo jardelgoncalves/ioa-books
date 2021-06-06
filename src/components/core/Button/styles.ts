@@ -16,6 +16,7 @@ export const ButotnWrapper = styled.button<ButtonProps>`
         background-color: transparent;
         border-radius: ${theme.shapes.buttonSizes[size || 'md']};
         border: 1px solid ${rgba(theme.colors[bg || 'white'], 0.2)};
+        font-size: 0;
       `
     }
     return `
