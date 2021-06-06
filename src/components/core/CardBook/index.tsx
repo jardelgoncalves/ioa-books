@@ -6,11 +6,12 @@ import * as S from './styles'
 export interface CardBookProps {
   book: Book
   onClick?: (book: Book) => void
+  disabled?: boolean
 }
 
-export const CardBook = ({ book, onClick }: CardBookProps) => {
+export const CardBook = ({ book, onClick, disabled }: CardBookProps) => {
   return (
-    <S.Box onClick={() => onClick(book)}>
+    <S.Box onClick={() => onClick(book)} disabled={disabled}>
       <S.CoverContainer>
         <Image
           objectFit="cover"
