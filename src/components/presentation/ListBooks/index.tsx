@@ -13,9 +13,10 @@ type PaginationProps = {
 export interface ListBooksProps {
   books: Book[]
   pagination?: PaginationProps
+  loading?: boolean
 }
 
-export const ListBooks = ({ books, pagination }: ListBooksProps) => {
+export const ListBooks = ({ books, pagination, loading }: ListBooksProps) => {
   const hasNext = pagination?.page >= pagination?.totalPages
   const hasPrevious = pagination?.page <= 1
 
@@ -27,9 +28,9 @@ export const ListBooks = ({ books, pagination }: ListBooksProps) => {
 
   return (
     <S.Container>
-      <S.List>
+      <S.List isLoading={loading}>
         {books.map((book) => (
-          <CardBook key={book.id} book={book} />
+          <CardBook key={book.id} book={book} disabled={loading} />
         ))}
       </S.List>
       <S.Pagination>
@@ -41,7 +42,7 @@ export const ListBooks = ({ books, pagination }: ListBooksProps) => {
           outline
           bg="primary"
           size="2xs"
-          disabled={hasPrevious}
+          disabled={hasPrevious || loading}
           onClick={() => handlerPage(pagination?.page - 1)}
         >
           <Icon name="arrow-left" size="md" />
@@ -50,7 +51,7 @@ export const ListBooks = ({ books, pagination }: ListBooksProps) => {
           outline
           bg="primary"
           size="2xs"
-          disabled={hasNext}
+          disabled={hasNext || loading}
           onClick={() => handlerPage(pagination?.page + 1)}
         >
           <Icon name="arrow-right" size="md" />
