@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     } else {
       setError(result.error)
     }
-    setLoading(true)
+    setLoading(false)
   }
 
   return (
