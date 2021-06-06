@@ -20,6 +20,7 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 8px 8px 2px 0;
+  user-select: none;
 `
 
 export const Label = styled.span`
