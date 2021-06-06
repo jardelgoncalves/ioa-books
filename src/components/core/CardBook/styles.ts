@@ -42,7 +42,8 @@ export const CoverContainer = styled.div`
   img {
     position: relative;
     max-width: 9.2875rem;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
