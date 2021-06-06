@@ -6,7 +6,7 @@ export interface Book {
   pageCount: number
   language: string
   category: string
-  imageUrl: string
+  imageUrl?: string
   isbn10: string
   isbn13: string
   publisher: string
