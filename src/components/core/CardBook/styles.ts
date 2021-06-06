@@ -24,6 +24,10 @@ export const Box = styled.button`
       ${({ theme }) => theme.colors.boxShadowPurpleDark};
   }
 
+  &:disabled {
+    cursor: default;
+  }
+
   @media (max-width: 650px) {
     max-width: 100%;
   }
