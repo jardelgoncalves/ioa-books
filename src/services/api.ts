@@ -16,12 +16,13 @@ export const createClientApi = (
     | null
     | undefined,
 ) => {
+  const { [TOKEN_COOKIES]: token } = parseCookies(ctx)
+
   const api = axios.create({
     baseURL: BASE_URL,
   })
-  const { [TOKEN_COOKIES]: token } = parseCookies(ctx)
   if (token) {
-    api.defaults.headers.Authorization = `Bearer: ${token}`
+    api.defaults.headers['Authorization'] = `Bearer ${token}`
   }
 
   return api
