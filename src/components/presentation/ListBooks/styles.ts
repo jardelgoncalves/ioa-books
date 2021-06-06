@@ -1,12 +1,25 @@
 import styled from 'styled-components'
 
-export const List = styled.div`
+type ListProps = {
+  isLoading: boolean
+}
+
+export const List = styled.div<ListProps>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: ${({ theme }) => theme.spacing.xl};
   margin-bottom: ${({ theme }) => theme.spacing.xl};
+  transition: opacity 0.2s;
+  ${({ isLoading }) => {
+    return (
+      isLoading &&
+      `
+        opacity: 0.4;
+      `
+    )
+  }}
 `
 export const Container = styled.div`
   display: flex;
