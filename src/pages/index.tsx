@@ -8,10 +8,7 @@ import { pageNormalize } from '../utils/page-normalize'
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { query } = ctx
 
-  const { page, limit } = pageNormalize(
-    query.page as string,
-    query.limit as string,
-  )
+  const { page } = pageNormalize(query.page as string)
 
   const { [TOKEN_COOKIES]: token } = parseCookies(ctx)
   if (!token) {
@@ -29,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { data: books } = await api.get('/books', {
       params: {
         page,
-        amount: limit,
+        amount: 12,
       },
     })
 
@@ -50,7 +47,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         pagination,
         query: {
           page,
-          limit,
         },
       },
     }
