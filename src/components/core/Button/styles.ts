@@ -37,4 +37,9 @@ export const ButotnWrapper = styled.button<ButtonProps>`
   &:hover {
     opacity: 0.8;
   }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
 `

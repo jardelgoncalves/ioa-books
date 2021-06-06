@@ -8,6 +8,7 @@ export interface ButtonProps {
   width?: number
   label?: string
   onClick?: () => void
+  disabled?: boolean
   children?: React.ReactNode
 }
 
@@ -19,6 +20,7 @@ export const Button = ({
   type,
   outline,
   bg,
+  disabled,
   children,
 }: ButtonProps) => {
   return (
@@ -28,6 +30,7 @@ export const Button = ({
       bg={bg}
       width={width}
       onClick={onClick}
+      disabled={disabled}
       type={type || 'button'}
     >
       {label}
