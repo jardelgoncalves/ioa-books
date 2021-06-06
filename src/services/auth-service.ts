@@ -1,5 +1,4 @@
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
-
 import { User } from '../interfaces/user'
 import { api } from '../services/api'
 import {
@@ -38,6 +37,8 @@ export const signIn = async ({
     setCookie(undefined, USER_COOKIES, JSON.stringify(data), {
       maxAge: MAX_AGE_COOKIES,
     })
+
+    api.defaults.headers['Authorization'] = `Bearer ${headers.authorization}`
   } catch (error) {
     result.success = false
     result.error = 'Ocorre um error inesperado'
