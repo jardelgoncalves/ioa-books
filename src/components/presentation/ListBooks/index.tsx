@@ -33,25 +33,27 @@ export const ListBooks = ({ books, pagination }: ListBooksProps) => {
         ))}
       </S.List>
       <S.Pagination>
-        <span>
+        <S.PaginationText>
           Página <strong>{pagination?.page}</strong> de{' '}
           <strong>{pagination?.totalPages}</strong>
-        </span>
+        </S.PaginationText>
         <Button
           outline
           bg="primary"
+          size="2xs"
           disabled={hasPrevious}
           onClick={() => handlerPage(pagination?.page - 1)}
         >
-          <Icon name="arrow-left" size="lg" />
+          <Icon name="arrow-left" size="md" />
         </Button>
         <Button
           outline
           bg="primary"
+          size="2xs"
           disabled={hasNext}
           onClick={() => handlerPage(pagination?.page + 1)}
         >
-          <Icon name="arrow-right" size="lg" />
+          <Icon name="arrow-right" size="md" />
         </Button>
       </S.Pagination>
     </S.Container>

@@ -24,3 +24,10 @@ export const Pagination = styled.div`
   }
   margin-bottom: 2rem;
 `
+export const PaginationText = styled.span`
+  font-size: ${({ theme }) => theme.typography.sizes.xs};
+  font-weight: ${({ theme }) => theme.typography.weight.regular};
+  strong {
+    font-weight: ${({ theme }) => theme.typography.weight.bold};
+  }
+`
