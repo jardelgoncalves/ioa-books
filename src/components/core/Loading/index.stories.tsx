@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Loading } from '.'
 
 export default {
-  title: 'Example/Loading',
+  title: 'UI/Loading',
   component: Loading,
   argTypes: {
     // backgroundColor: { control: 'color' },

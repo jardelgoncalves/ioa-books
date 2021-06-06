@@ -10,7 +10,7 @@ Object.defineProperty(nextImage, 'default', {
 })
 
 export default {
-  title: 'Example/CardBook',
+  title: 'UI/CardBook',
   component: CardBook,
   argTypes: {
     // backgroundColor: { control: 'color' },

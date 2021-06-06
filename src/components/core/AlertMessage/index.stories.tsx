@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { AlertMessage, AlertMessageProps } from '.'
 
 export default {
-  title: 'Example/AlertMessage',
+  title: 'UI/AlertMessage',
   component: AlertMessage,
   argTypes: {},
 } as Meta

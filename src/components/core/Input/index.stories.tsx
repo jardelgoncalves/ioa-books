@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Input, InputProps } from './'
 
 export default {
-  title: 'Example/Input',
+  title: 'UI/Input',
   component: Input,
   argTypes: {},
 } as Meta
