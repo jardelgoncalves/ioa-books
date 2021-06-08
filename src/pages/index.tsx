@@ -4,6 +4,7 @@ import { TOKEN_COOKIES } from '../utils/constants'
 import { createClientApi } from '../services/api'
 import { joinAuthors } from '../utils/join-authors'
 import { pageNormalize } from '../utils/page-normalize'
+import * as authService from '../services/auth-service'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { query } = ctx
@@ -21,14 +22,21 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
   }
 
-  try {
+  const fetchBooksPerPage = async (page: number) => {
     const api = createClientApi(ctx)
-    const { data: books } = await api.get('/books', {
+    return api.get('/books', {
       params: {
         page,
         amount: 12,
       },
     })
+  }
+
+  try {
+    const { data: books } = await authService.refreshToken(
+      () => fetchBooksPerPage(page),
+      ctx,
+    )
 
     const pagination = {
       page,
