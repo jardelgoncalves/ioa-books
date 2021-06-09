@@ -103,8 +103,7 @@ export const refreshToken = async (
   } catch (error) {
     if (error.response) {
       const { [REFRESH_TOKEN_COOKIES]: refreshToken } = parseCookies(ctx)
-      console.log(error.response)
-      if (error.response.statusCode === 401 && refreshToken) {
+      if (error.response.status === 401 && refreshToken) {
         await renewToken()
         return fn()
       }
