@@ -1,7 +1,11 @@
 import { rgba } from 'polished'
 import styled from 'styled-components'
 
-export const Layer = styled.div`
+type LayerProps = {
+  isOpen?: boolean
+}
+
+export const Layer = styled.div<LayerProps>`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -10,9 +14,13 @@ export const Layer = styled.div`
   z-index: 999999;
   background-color: ${({ theme }) => rgba(theme.colors.black, 0.6)};
   backdrop-filter: blur(2px);
-  display: flex;
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
+  ${({ theme }) => theme.breakpoints.lessThan('medium')`
+    flex-direction: column;
+    padding: 60px 8px 8px;
+  `}
 `
 
 export const ModalWrapper = styled.div`
@@ -23,6 +31,11 @@ export const ModalWrapper = styled.div`
   box-shadow: 0px 16px 80px 0px ${({ theme }) => theme.colors.boxShadowBlack};
   display: flex;
   align-items: center;
+
+  ${({ theme }) => theme.breakpoints.lessThan('medium')`
+    flex-direction: column;
+    overflow-y: auto;
+  `}
 `
 
 export const ImagePreview = styled.div`
@@ -45,6 +58,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-self: stretch;
+
+  ${({ theme }) => theme.breakpoints.lessThan('medium')`
+    padding-left: 0;
+  `}
 `
 
 export const Title = styled.h1`
@@ -98,4 +115,21 @@ export const ContentInfoItem = styled.div`
       color: ${({ theme }) => theme.colors.grey};
     }
   }
+`
+export const CloseButton = styled.button`
+  height: 32px;
+  width: 32px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: none;
+  border-radius: 16px;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  box-sizing: border-box;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 `
