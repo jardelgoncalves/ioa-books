@@ -1,9 +1,8 @@
-import { useState } from 'react'
-
-import { Book } from '../../interfaces/book'
+import type { Book } from '../../interfaces/book'
 
 import { ListBooks } from '../../components/presentation/ListBooks'
 import { useFetchBooks } from '../../hooks/useFetchBooks'
+import { usePagination } from '../../hooks/usePagination'
 
 interface LoginProps {
   books: Book[]
@@ -22,12 +21,8 @@ export default function Login({
   query: { page },
   pagination,
 }: LoginProps) {
-  const [currentPage, setCurrentPage] = useState(Number(page || 1))
+  const { handlePage, page: currentPage } = usePagination(page || 1)
   const { loading, isFallback } = useFetchBooks(currentPage)
-
-  function handlerPages(newpage: number) {
-    setCurrentPage(newpage)
-  }
 
   return (
     <ListBooks
@@ -36,7 +31,7 @@ export default function Login({
       pagination={{
         page,
         totalPages: pagination.totalPages,
-        onChangePage: handlerPages,
+        onChangePage: handlePage,
       }}
     />
   )
