@@ -31,7 +31,7 @@ export const Content = styled.div<Props>`
   }}
 
   ${({ theme }) => theme.breakpoints.lessThan('huge')`
-    padding: 0 7.1875rem;
+    padding: 0 6.125rem;
   `}
 
   ${({ theme }) => theme.breakpoints.lessThan('large')`
