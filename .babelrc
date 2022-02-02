@@ -1,4 +1,26 @@
 {
   "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }]]
+  "plugins": [
+    ["styled-components", { "ssr": true }],
+    "inline-react-svg",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "assets/*": "src/assets/*",
+          "components/*": "src/components/*",
+          "containers/*": "src/containers/*",
+          "contexts/*": "src/contexts/*",
+          "hooks/*": "src/hooks/*",
+          "interfaces/*": "src/interfaces/*",
+          "pages/*": "src/pages/*",
+          "services/*": "src/services/*",
+          "stories/*": "src/stories/*",
+          "styles/*": "src/styles/*",
+          "utils/*": "src/utils/*"
+        }
+      }
+    ]
+]
 }
