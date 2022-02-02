@@ -30,9 +30,13 @@ export const Pagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  span {
+  & > span {
     margin-right: 1rem;
   }
+  button {
+    font-size: 0;
+  }
+
   button + button {
     margin-left: 1rem;
   }

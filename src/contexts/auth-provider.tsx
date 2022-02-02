@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import Router from 'next/router'
-import { User } from '../interfaces/user'
-import * as authSerivce from '../services/auth-service'
+import { User } from 'interfaces/user'
+import * as authSerivce from 'services/auth-service'
 
 interface Auth {
   isAuthenticated: boolean

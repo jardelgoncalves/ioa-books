@@ -1,12 +1,12 @@
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { Button } from '../../components/core/Button'
-import { Input } from '../../components/core/Input'
-import { Logo } from '../../components/core/Logo'
+import { Button } from 'components/core/Button'
+import { Input } from 'components/core/Input'
+import { Logo } from 'components/core/Logo'
 import * as S from './styles'
-import { AuthContext } from '../../contexts/auth-provider'
-import { AlertMessage } from '../../components/core/AlertMessage'
+import { AuthContext } from 'contexts/auth-provider'
+import { AlertMessage } from 'components/core/AlertMessage'
 
 export default function Login() {
   const { signIn, error, loading } = useContext(AuthContext)

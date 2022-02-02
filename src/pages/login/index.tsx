@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
-import { TOKEN_COOKIES } from '../../utils/constants'
+import { TOKEN_COOKIES } from 'utils/constants'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { [TOKEN_COOKIES]: token } = parseCookies(ctx)

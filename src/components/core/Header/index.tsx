@@ -1,12 +1,13 @@
+import { useContext } from 'react'
 import Router from 'next/router'
+
 import { Logo } from '../Logo'
 import { Button } from '../Button'
-import * as S from './styles'
 import { Icon } from '../Icon'
 
-import * as authService from '../../../services/auth-service'
-import { AuthContext } from '../../../contexts/auth-provider'
-import { useContext } from 'react'
+import { AuthContext } from 'contexts/auth-provider'
+import * as authService from 'services/auth-service'
+import * as S from './styles'
 
 export const Header = () => {
   const { user } = useContext(AuthContext)

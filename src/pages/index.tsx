@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
-import { TOKEN_COOKIES } from '../utils/constants'
-import { createClientApi } from '../services/api'
-import { joinAuthors } from '../utils/join-authors'
-import { pageNormalize } from '../utils/page-normalize'
-import * as authService from '../services/auth-service'
+import { TOKEN_COOKIES } from 'utils/constants'
+import { createClientApi } from 'services/api'
+import { joinAuthors } from 'utils/join-authors'
+import { pageNormalize } from 'utils/page-normalize'
+import * as authService from 'services/auth-service'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { query } = ctx

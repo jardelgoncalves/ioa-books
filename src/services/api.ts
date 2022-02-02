@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Request } from 'express'
 import { NextApiRequest, NextPageContext } from 'next'
 import { parseCookies } from 'nookies'
-import { BASE_URL, TOKEN_COOKIES } from '../utils/constants'
+import { BASE_URL, TOKEN_COOKIES } from 'utils/constants'
 
 export const createClientApi = (
   ctx?:

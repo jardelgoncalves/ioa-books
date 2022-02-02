@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components'
-import { Header } from '../components/core/Header'
-import { HeadSEO } from '../components/core/HeadSEO'
-import { Layout } from '../components/core/Layout'
-import { AuthProvider } from '../contexts/auth-provider'
-import { GlobalStyle } from '../styles/global.styles'
-import { theme } from '../styles/theme'
+import { Header } from 'components/core/Header'
+import { HeadSEO } from 'components/core/HeadSEO'
+import { Layout } from 'components/core/Layout'
+import { AuthProvider } from 'contexts/auth-provider'
+import { GlobalStyle } from 'styles/global.styles'
+import { theme } from 'styles/theme'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type AppProps = {

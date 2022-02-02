@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import { Book } from '../../../interfaces/book'
-import { CardBook } from '../../core/CardBook/index'
-import { Button } from '../../core/Button'
-import { Icon } from '../../core/Icon'
-import { Modal } from '../../core/Modal'
+
+import type { Book } from 'interfaces/book'
+
+import { CardBook } from 'components/core/CardBook'
+import { Button } from 'components/core/Button'
+import { Icon } from 'components/core/Icon'
+import { Modal } from 'components/core/Modal'
+
 import * as S from './styles'
 
 type PaginationProps = {

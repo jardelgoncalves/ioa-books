@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-import type { Book } from '../../../interfaces/book'
+import type { Book } from 'interfaces/book'
 
 import { Quote } from '../Quote'
-import ReactPortal from '../ReactPortal'
 import { Icon } from '../Icon'
+import ReactPortal from '../ReactPortal'
 
-import { bookTranslateField } from '../../../utils/book-translate-field'
+import { bookTranslateField } from 'utils/book-translate-field'
 import * as S from './styles'
 
 const infoItem = [

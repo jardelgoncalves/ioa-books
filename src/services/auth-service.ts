@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosResponse } from 'axios'
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
-import { User } from '../interfaces/user'
-import { api } from '../services/api'
+import { User } from 'interfaces/user'
+import { api } from 'services/api'
 import {
   TOKEN_COOKIES,
   USER_COOKIES,
   MAX_AGE_COOKIES,
   REFRESH_TOKEN_COOKIES,
-} from '../utils/constants'
+} from 'utils/constants'
 
 export type LoginData = {
   email: string

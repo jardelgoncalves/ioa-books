@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
-import { Book } from '../../../interfaces/book'
+import type { Book } from 'interfaces/book'
+
 import * as S from './styles'
 
 export interface CardBookProps {

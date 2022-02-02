@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { Book } from '../interfaces/book'
+import { Book } from 'interfaces/book'
 
 interface BookProviderContext {
   book: Book | null

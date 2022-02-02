@@ -1,8 +1,8 @@
-import type { Book } from '../../interfaces/book'
+import type { Book } from 'interfaces/book'
 
-import { ListBooks } from '../../components/presentation/ListBooks'
-import { useFetchBooks } from '../../hooks/useFetchBooks'
-import { usePagination } from '../../hooks/usePagination'
+import { ListBooks } from 'components/presentation/ListBooks'
+import { useFetchBooks } from 'hooks/useFetchBooks'
+import { usePagination } from 'hooks/usePagination'
 
 interface LoginProps {
   books: Book[]

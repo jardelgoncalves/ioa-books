@@ -27,6 +27,10 @@ export const Header = styled.header`
 export const UserWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  button {
+    font-size: 0;
+  }
 `
 
 export const UserMessage = styled.span`
