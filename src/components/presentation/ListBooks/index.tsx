@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { Book } from '../../../interfaces/book'
-import * as S from './styles'
 import { CardBook } from '../../core/CardBook/index'
 import { Button } from '../../core/Button'
 import { Icon } from '../../core/Icon'
+import { Modal } from '../../core/Modal'
+import * as S from './styles'
 
 type PaginationProps = {
   page?: number
@@ -17,6 +19,7 @@ export interface ListBooksProps {
 }
 
 export const ListBooks = ({ books, pagination, loading }: ListBooksProps) => {
+  const [book, setBook] = useState<Book | null>(null)
   const hasNext = pagination?.page >= pagination?.totalPages
   const hasPrevious = pagination?.page <= 1
 
@@ -29,8 +32,13 @@ export const ListBooks = ({ books, pagination, loading }: ListBooksProps) => {
   return (
     <S.Container>
       <S.List isLoading={loading}>
-        {books.map((book) => (
-          <CardBook key={book.id} book={book} disabled={loading} />
+        {books.map((bookItem) => (
+          <CardBook
+            key={bookItem.id}
+            onClick={() => setBook(bookItem)}
+            book={bookItem}
+            disabled={loading}
+          />
         ))}
       </S.List>
       <S.Pagination>
@@ -57,6 +65,7 @@ export const ListBooks = ({ books, pagination, loading }: ListBooksProps) => {
           <Icon name="arrow-right" size="md" />
         </Button>
       </S.Pagination>
+      <Modal book={book} isOpen={!!book} handleClose={() => setBook(null)} />
     </S.Container>
   )
 }
