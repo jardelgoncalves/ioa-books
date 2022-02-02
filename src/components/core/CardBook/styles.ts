@@ -8,8 +8,8 @@ const ellipsisStyle = css`
 `
 
 export const Box = styled.button`
-  max-width: 16.9rem;
-  width: 100%;
+  min-width: 16.9rem;
+  flex: 1;
   height: 10rem;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 6px 24px 0px ${({ theme }) => theme.colors.boxShadowPurple};
